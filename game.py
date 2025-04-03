@@ -97,54 +97,65 @@ def gameInit():
         if "dev" in areas: 
             print(Fore.CYAN + "Desenvolvimento de Software")
             print(Fore.LIGHTCYAN_EX + "-------------------------------------------------")
-            print("Você pode trabalhar como:")
-            print("- Desenvolvedor(a) de Software")
-            print("- Engenheiro(a) de Software")
-            print("- Programador(a) Front-end")
-            print("- Programador(a) Back-end")
-            print("- Cientista de Dados")
+            print("""
+            Você pode trabalhar como:
+            - Desenvolvedor(a) de Software"
+            - Engenheiro(a) de Software"
+            - Programador(a) Front-end"
+            - Programador(a) Back-end"
+            - Cientista de Dados"
+            """)
         elif "design" in areas:
             print(Fore.BLUE + "Área de Produtos (UX/UI, Product Owner, Product Manager, etc.")
             print(Fore.LIGHTCYAN_EX + "-------------------------------------------------")
-            print("Você pode trabalhar como:")
-            print("- Designer de Produtos")
-            print("- UX/UI Designer")
-            print("- Pesquisador(a) de UX")
-            print("- Arquiteto(a) de Informação")
-            print("- Especialista em Experiência do Usuário")
+            print("""
+            Você pode trabalhar como:
+            - Designer de Produtos"
+            - UX/UI Designer"
+            - Pesquisador(a) de UX"
+            - Arquiteto(a) de Informação"
+            - Especialista em Experiência do Usuário"
+            """)
         else:
             print(Fore.YELLOW + "Área de Qualidade (Testes, QA, automação de testes, etc.)")
             print(Fore.LIGHTCYAN_EX + "-------------------------------------------------")
-            print("Você pode trabalhar como:")
-            print("- Analista de Testes")
-            print("- Engenheiro(a) de Qualidade")
-            print("- Especialista em Garantia de Qualidade")
-            print("- Testador(a) de Software")
-            print("- Analista de Qualidade de Software")
+            print("""
+            Você pode trabalhar como:
+            - Analista de Testes"
+            - Engenheiro(a) de Qualidade"
+            - Especialista em Garantia de Qualidade"
+            - Testador(a) de Software"
+            - Analista de Qualidade de Software"
+            """)
     elif len(areas) > 1: # aqui eu verifico se a lista tem mais de uma área
-        print(Fore.RED + "Que surpresa! Você pode trabalhar em todas as as áreas mencionadas.")
+        print(Fore.RED + "Que surpresa! Você pode trabalhar em mais de uma ÁREA das áreas mencionadas.")
         print(Fore.LIGHTCYAN_EX + "-------------------------------------------------")
         time.sleep(1)
-        print(Fore.YELLOW + "Você pode trabalhar como:")
-        time.sleep(1)
+        print(Fore.BLUE + "Você pode trabalhar como:")
         if "dev" in areas:
-            print("- Desenvolvedor(a) de Software")
-            print("- Engenheiro(a) de Software")
-            print("- Programador(a) Front-end")
-            print("- Programador(a) Back-end")
-            print("- Cientista de Dados")
+            print("""
+            - Desenvolvedor(a) de Software"
+            - Engenheiro(a) de Software"
+            - Programador(a) Front-end"
+            - Programador(a) Back-end"
+            - Cientista de Dados"
+            """)
         if "design" in areas:
-            print("- Designer de Produtos")
-            print("- UX/UI Designer")
-            print("- Pesquisador(a) de UX")
-            print("- Arquiteto(a) de Informação")
-            print("- Especialista em Experiência do Usuário")
+            print("""
+            - Designer de Produtos"
+            - UX/UI Designer"
+            - Pesquisador(a) de UX"
+            - Arquiteto(a) de Informação"
+            - Especialista em Experiência do Usuário"
+            """)
         if "qa" in areas:
-            print("- Analista de Testes")
-            print("- Engenheiro(a) de Qualidade")
-            print("- Especialista em Garantia de Qualidade")
-            print("- Testador(a) de Software")
-            print("- Analista de Qualidade de Software")
+            print("""
+            - Analista de Testes"
+            - Engenheiro(a) de Qualidade"
+            - Especialista em Garantia de Qualidade"
+            - Testador(a) de Software"
+            - Analista de Qualidade de Software"
+            """)
     else: # aqui eu verifico se a lista não tem nada, o que não deveria acontecer, mas se acontecer eu reinicio o jogo
         print(Fore.RED + "Opa! Algo deu errado! Vamos reiniciar o jogo.")
         time.sleep(1)
