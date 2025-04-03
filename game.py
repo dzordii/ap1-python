@@ -1,11 +1,13 @@
+# importei 2 bibliotecas, time pra dar delay e colorama pra deixar bonitinho
 import time
 from colorama import init, Fore
 init()
 
-def inputValidator(prompt):
+# função que recebe as info e não aceita valores menores que 1 e maiores que 5
+def inputValidator(aquiEuReceboAsInfo):
     while True:
         try:
-            value = int(input(Fore.GREEN + prompt))
+            value = int(input(Fore.GREEN + aquiEuReceboAsInfo))
             if value >= 1 and value <= 5:
                 return value
             else:
@@ -13,8 +15,11 @@ def inputValidator(prompt):
         except ValueError:
             print("Entrada inválida! Por favor, insira um número entre 1 e 5.")
             
+# pura balaca pra fingir que ta carregando         
 print(Fore.MAGENTA + "Aguarde, o Jogo está carregando...")
 time.sleep(2)
+
+# funcão que inicia o jogo
 def gameInit():
     print(Fore.GREEN + "Olá! Bem-vindo ao jogo de carreira em tecnologia!")
     print(Fore.YELLOW + "Neste jogo, você responderá a algumas perguntas para descobrir qual área da tecnologia combina mais com você.")
@@ -61,14 +66,16 @@ def gameInit():
     p13q = inputValidator("Acredito que testes automatizados ajudam a evitar falhas em sistemas? ")
     p14q = inputValidator("Gosto de seguir padrões e documentar processos para garantir qualidade? ")
     p15q = inputValidator("Quero trabalhar garantindo que um software funcione bem para todos os usuários? ")
-
+    # a soma acontece aqui
     soma1 = p1s + p2s + p3s + p4s + p5s
     soma2 = p6p + p7p + p8p + p9p + p10p
     soma3 = p11q + p12q + p13q + p14q + p15q
-
+    # usei o max pra ver qual é a maior soma e coloquei em uma variável
     betterValue = max(soma1, soma2, soma3)
+    # criei uma lista vazia pra colocar as áreas que o usuário se encaixa
     areas = []
 
+    # aqui eu verifico qual das somas é maior e adiciono a área na lista
     if soma1 == betterValue:
         areas.append("dev")
     if soma2 == betterValue:
@@ -76,6 +83,7 @@ def gameInit():
     if soma3 == betterValue:
         areas.append("qa")
 
+    # pura balaca de novo pra fingir que ta carregando
     print(Fore.CYAN + "Estou pensando, aguarde um momento...")
     time.sleep(3)
     print(Fore.CYAN + "Analisando suas respostas...")
@@ -84,8 +92,9 @@ def gameInit():
     time.sleep(2)
     print(Fore.LIGHTCYAN_EX + "-------------------------------------------------")
     
+    # aqui eu verifico se a lista tem apenas uma área ou mais de uma
     if len(areas) == 1:
-        if "dev" in areas:
+        if "dev" in areas: 
             print(Fore.CYAN + "Desenvolvimento de Software")
             print(Fore.LIGHTCYAN_EX + "-------------------------------------------------")
             print("Você pode trabalhar como:")
@@ -112,7 +121,7 @@ def gameInit():
             print("- Especialista em Garantia de Qualidade")
             print("- Testador(a) de Software")
             print("- Analista de Qualidade de Software")
-    elif len(areas) > 1:
+    elif len(areas) > 1: # aqui eu verifico se a lista tem mais de uma área
         print(Fore.RED + "Que surpresa! Você pode trabalhar em todas as as áreas mencionadas.")
         print(Fore.LIGHTCYAN_EX + "-------------------------------------------------")
         time.sleep(1)
@@ -136,13 +145,14 @@ def gameInit():
             print("- Especialista em Garantia de Qualidade")
             print("- Testador(a) de Software")
             print("- Analista de Qualidade de Software")
-    else:
+    else: # aqui eu verifico se a lista não tem nada, o que não deveria acontecer, mas se acontecer eu reinicio o jogo
         print(Fore.RED + "Opa! Algo deu errado! Vamos reiniciar o jogo.")
         time.sleep(1)
         print("Reiniciando...")
         time.sleep(1)
         return gameInit()
     
+    # aqui eu pergunto se o usuário quer jogar de novo
     playAgain = input(Fore.BLUE + "Deseja jogar novamente? (s/n): ")
     if playAgain.lower() == 's':
         print(Fore.YELLOW + "Reiniciando o jogo...")
@@ -157,4 +167,5 @@ def gameInit():
         time.sleep(1)
         exit()
         
+# aqui eu chamo a função pra iniciar o jogo        
 gameInit()
