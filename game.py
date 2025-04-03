@@ -18,7 +18,13 @@ time.sleep(2)
 def gamInit():
     print(Fore.GREEN + "Olá! Bem-vindo ao jogo de carreira em tecnologia!")
     print(Fore.YELLOW + "Neste jogo, você responderá a algumas perguntas para descobrir qual área da tecnologia combina mais com você.")
+    time.sleep(1)
     print(Fore.CYAN + """
+    As áreas disponíveis são:
+    - Desenvolvimento de Software
+    - Área de Produtos (UX/UI, Product Owner, Product Manager, etc.)
+    - Área de Qualidade (Testes, QA, automação de testes, etc.)
+    
     Você terá 15 perguntas para responder, e cada pergunta terá 5 opções de resposta.
     As opções vão de 1 a 5, onde:
     1 - Discordo totalmente
@@ -27,7 +33,7 @@ def gamInit():
     4 - Concordo
     5 - Concordo totalmente
     """)
-    input(Fore.YELLOW + "Pressione qualquer tecla para continuar...")
+    input(Fore.YELLOW + "Pressione ENTER para continuar...")
     print("O jogo vai começar em 3 segundos...")
     time.sleep(1)
     print("2 segundos...")
@@ -59,50 +65,93 @@ def gamInit():
     soma1 = p1s + p2s + p3s + p4s + p5s
     soma2 = p6p + p7p + p8p + p9p + p10p
     soma3 = p11q + p12q + p13q + p14q + p15q
+
     betterValue = max(soma1, soma2, soma3)
-    
-    print(Fore.BLACK + Back.WHITE + "Estou pensando, aguarde um momento...")
+    areas = []
+
+    if soma1 == betterValue:
+        areas.append("dev")
+    if soma2 == betterValue:
+        areas.append("design")
+    if soma3 == betterValue:
+        areas.append("qa")
+
+    print(Fore.CYAN + "Estou pensando, aguarde um momento...")
     time.sleep(3)
-    print(Fore.BLACK + Back.WHITE + "Analisando suas respostas...")
+    print(Fore.CYAN + "Analisando suas respostas...")
     time.sleep(2)
-    print(Fore.BLACK + Back.WHITE + "Você combima mais com...")
+    print(Fore.CYAN + "Você combina mais com...")
     time.sleep(2)
     print(Fore.LIGHTCYAN_EX + "-------------------------------------------------")
-    if betterValue == soma1:
-        print(Fore.CYAN + "Você se saiu melhor na área de programação.")
-        print("Você pode trabalhar como:")
-        print("- Desenvolvedor(a) de Software")
-        print("- Engenheiro(a) de Software")
-        print("- Programador(a) Front-end")
-        print("- Programador(a) Back-end")
-        print("- Cientista de Dados")
-    elif betterValue == soma2:
-        print(Fore.BLUE + "Você se saiu melhor na área de design de produtos.")
-        print("Você pode trabalhar como:")
-        print("- Designer de Produtos")
-        print("- UX/UI Designer")
-        print("- Pesquisador(a) de UX")
-        print("- Arquiteto(a) de Informação")
-        print("- Especialista em Experiência do Usuário")
-    elif betterValue == soma3:
-        print(Fore.YELLOW + "Você se saiu melhor na área de qualidade.")
-        print("Você pode trabalhar como:")
-        print("- Analista de Testes")
-        print("- Engenheiro(a) de Qualidade")
-        print("- Especialista em Garantia de Qualidade")
-        print("- Testador(a) de Software")
-        print("- Analista de Qualidade de Software")
-    elif betterValue == soma1 and betterValue == soma2 and betterValue == soma3:
-        print(Fore.MAGENTA + "Você se saiu igual em todas as áreas.")
-        print("Você pode trabalhar como:")
-        print("- Desenvolvedor(a) de Software")
-        print("- Designer de Produtos")
-        print("- Analista de Testes")
+    
+    if len(areas) == 1:
+        if "dev" in areas:
+            print(Fore.CYAN + "Desenvolvimento de Software")
+            print(Fore.LIGHTCYAN_EX + "-------------------------------------------------")
+            print("Você pode trabalhar como:")
+            print("- Desenvolvedor(a) de Software")
+            print("- Engenheiro(a) de Software")
+            print("- Programador(a) Front-end")
+            print("- Programador(a) Back-end")
+            print("- Cientista de Dados")
+        elif "design" in areas:
+            print(Fore.BLUE + "Área de Produtos (UX/UI, Product Owner, Product Manager, etc.")
+            print(Fore.LIGHTCYAN_EX + "-------------------------------------------------")
+            print("Você pode trabalhar como:")
+            print("- Designer de Produtos")
+            print("- UX/UI Designer")
+            print("- Pesquisador(a) de UX")
+            print("- Arquiteto(a) de Informação")
+            print("- Especialista em Experiência do Usuário")
+        else:
+            print(Fore.YELLOW + "Área de Qualidade (Testes, QA, automação de testes, etc.)")
+            print(Fore.LIGHTCYAN_EX + "-------------------------------------------------")
+            print("Você pode trabalhar como:")
+            print("- Analista de Testes")
+            print("- Engenheiro(a) de Qualidade")
+            print("- Especialista em Garantia de Qualidade")
+            print("- Testador(a) de Software")
+            print("- Analista de Qualidade de Software")
+    elif len(areas) > 1:
+        print(Fore.RED + "Que surpresa! Você pode trabalhar em todas as as áreas mencionadas.")
+        print(Fore.LIGHTCYAN_EX + "-------------------------------------------------")
+        time.sleep(1)
+        print(Fore.YELLOW + "Você pode trabalhar como:")
+        time.sleep(1)
+        if "dev" in areas:
+            print("- Desenvolvedor(a) de Software")
+            print("- Engenheiro(a) de Software")
+            print("- Programador(a) Front-end")
+            print("- Programador(a) Back-end")
+            print("- Cientista de Dados")
+        if "design" in areas:
+            print("- Designer de Produtos")
+            print("- UX/UI Designer")
+            print("- Pesquisador(a) de UX")
+            print("- Arquiteto(a) de Informação")
+            print("- Especialista em Experiência do Usuário")
+        if "qa" in areas:
+            print("- Analista de Testes")
+            print("- Engenheiro(a) de Qualidade")
+            print("- Especialista em Garantia de Qualidade")
+            print("- Testador(a) de Software")
+            print("- Analista de Qualidade de Software")
     else:
         print(Fore.RED + "Opa! Algo deu errado! Vamos reiniciar o jogo.")
         time.sleep(1)
         print("Reiniciando...")
         time.sleep(1)
         return gamInit()
-
+    
+    if input("Deseja jogar novamente? (s/n): ").lower() == 's':
+        gamInit()
+    elif input("Deseja jogar novamente? (s/n): ").lower() == 'n':
+        print(Fore.CYAN + "Até a próxima!")
+        print("Fechando o jogo...")
+        time.sleep(1)
+        exit()
+    else:
+        print(Fore.RED + "Entrada inválida, vamos fechar o jogo.")
+        time.sleep(1)
+        exit()
 gamInit()
