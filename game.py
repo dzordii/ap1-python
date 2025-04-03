@@ -1,5 +1,5 @@
 import time
-from colorama import init, Fore, Back
+from colorama import init, Fore
 init()
 
 def inputValidator(prompt):
@@ -15,7 +15,7 @@ def inputValidator(prompt):
             
 print(Fore.MAGENTA + "Aguarde, o Jogo está carregando...")
 time.sleep(2)
-def gamInit():
+def gameInit():
     print(Fore.GREEN + "Olá! Bem-vindo ao jogo de carreira em tecnologia!")
     print(Fore.YELLOW + "Neste jogo, você responderá a algumas perguntas para descobrir qual área da tecnologia combina mais com você.")
     time.sleep(1)
@@ -36,9 +36,9 @@ def gamInit():
     input(Fore.YELLOW + "Pressione ENTER para continuar...")
     print("O jogo vai começar em 3 segundos...")
     time.sleep(1)
-    print("2 segundos...")
+    print("O jogo vai começar em 2 segundos..")
     time.sleep(1)
-    print("1 segundo...")
+    print("O jogo vai começar em 1 segundo.")
     time.sleep(1)
     print(Fore.CYAN + "Responda as perguntas abaixo:")
     time.sleep(1)
@@ -141,17 +141,20 @@ def gamInit():
         time.sleep(1)
         print("Reiniciando...")
         time.sleep(1)
-        return gamInit()
+        return gameInit()
     
-    if input("Deseja jogar novamente? (s/n): ").lower() == 's':
-        gamInit()
-    elif input("Deseja jogar novamente? (s/n): ").lower() == 'n':
-        print(Fore.CYAN + "Até a próxima!")
-        print("Fechando o jogo...")
+    playAgain = input(Fore.BLUE + "Deseja jogar novamente? (s/n): ")
+    if playAgain.lower() == 's':
+        print(Fore.YELLOW + "Reiniciando o jogo...")
+        time.sleep(1)
+        gameInit()
+    elif playAgain.lower() == 'n':
+        print(Fore.YELLOW + "Obrigado por jogar! Até a próxima!")
         time.sleep(1)
         exit()
     else:
         print(Fore.RED + "Entrada inválida, vamos fechar o jogo.")
         time.sleep(1)
         exit()
-gamInit()
+        
+gameInit()
