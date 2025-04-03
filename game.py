@@ -6,7 +6,7 @@ def inputValidator(prompt):
     while True:
         try:
             value = int(input(Fore.GREEN + prompt))
-            if 1 <= value <= 5:
+            if value >= 1 and value <= 5:
                 return value
             else:
                 print("Por favor, insira um número entre 1 e 5. vamos tentar novamente.")
